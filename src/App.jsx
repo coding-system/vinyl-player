@@ -8,12 +8,10 @@ import Holder from "./components/Holder";
 import Base from "./components/Base";
 import Tonearm from "./components/Tonearm";
 import Vinyl from "./components/Vinyl";
-import Live from "./components/Live";
 
 function App() {
    return (
       <div className="app">
-         <Live />
          <Board />
          <Volume />
          <Jack />

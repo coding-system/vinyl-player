@@ -1,0 +1,200 @@
+.vinyl {
+   box-shadow: 0.3em 0.3em 0.8em rgba(0, 0, 0, 0.5);
+   z-index: 8;
+   position: absolute;
+   bottom: #{$base-offset-bot}rem;
+   left: #{$base-offset-left}rem;
+   font-size: 1.8rem;
+   // width: 41em;
+   width: #{$disk-size};
+   aspect-ratio: 1;
+   border-radius: 50%;
+   overflow: hidden;
+   transition: 0.6s ease;
+   scale: 1;
+   &-playing {
+      scale: 1;
+   }
+   // box-shadow: inset 0.4em 0.4em 1.2em #c5c5c5, inset -0.4em -0.4em 1.2em #ffffff;
+   // animation: disk-spinning 50s linear infinite;
+   &__box {
+      z-index: 8;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: conic-gradient(
+         #030e12,
+         #0e1a1f,
+         #030e12,
+         #0a1b1d,
+         #0f1b1f,
+         #10292d,
+         #030e12
+      );
+      // background: conic-gradient(
+      //    #3b2a1a,
+      //    #5a3f24,
+      //    #3b2a1a,
+      //    #6b4a2d,
+      //    #4e3721,
+      //    #7b5638,
+      //    #3b2a1a
+      // );
+
+      &::before {
+         position: absolute;
+         content: "";
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: conic-gradient(
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 225, 0.2),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 225, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 225, 0.2),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 225, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0),
+               rgba(255, 255, 255, 0)
+            ),
+            repeating-radial-gradient(
+               circle at center,
+               rgba(0, 0, 0, 0.3) 10% 10.25%,
+               /* Полоска 0.5% */ rgba(255, 255, 255, 0) 10.25% 11%,
+               /* Промежуток 2.5% */ rgba(0, 0, 0, 0.3) 11% 11.25%,
+               /* Полоска 0.5% */ rgba(0, 0, 0, 0) 11.25% 12%
+                  /* Промежуток 2.5% */
+            ),
+            radial-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+         mask-image: radial-gradient(
+            circle at center,
+            transparent 0% 27.5%,
+            /* Прозрачно до 10% */ black 27.5% 100%
+               /* Видимые полоски после 10% */
+         );
+      }
+   }
+   &__body {
+      width: 100%;
+      height: 100%;
+   }
+   &__center {
+      position: relative;
+      width: 100%;
+      height: 100%;
+   }
+   &__out {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 15.2em;
+      height: 15.2em;
+      background-color: #193338;
+      border-radius: 50%;
+      // box-shadow: 0 0 1em #ffffff;
+   }
+   &__in {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12em;
+      height: 12em;
+      // background-color: #c4a988;
+      // background: conic-gradient(#c4a988, #d6c7b5, #beac96, #c4a988);
+      background-image: url("../assets/images/1.png");
+      background-size: cover;
+      background-position: center;
+      object-fit: cover;
+      object-position: center;
+      // background: linear-gradient(#ffffff 32%, #1900ff 32%, 67%, #ff0000 67%);
+      border-radius: 50%;
+      &-text {
+         &-volume {
+            color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 9%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Courier New", monospace;
+            font-size: 1.1em;
+            font-weight: 600;
+         }
+         &-time {
+            color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Courier New", monospace;
+            font-size: 1.6em;
+            font-weight: 600;
+         }
+      }
+   }
+   &__dot {
+      position: relative;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1em;
+      height: 1em;
+      background: radial-gradient(
+            #ffffff,
+            #ffffff,
+            #00000011,
+            #8f8f8f00,
+            #00000000,
+            #00000000,
+            #00000000,
+            #00000000
+         ),
+         conic-gradient(#ffffff, #d6d6d6, #979797, #d6d6d6, #979797, #ffffff);
+      border-radius: 50%;
+   }
+}
+
+
+.vinyl__text-circle {
+   width: 16em;
+   aspect-ratio: 1;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.vinyl__circle-text {
+   font-size: 0.8em;
+   font-family: "Courier New", monospace;
+   fill: #ffe600;
+   // letter-spacing: 0.1em;
+   // word-spacing: 0.1em;
+   text-transform: uppercase;
+}

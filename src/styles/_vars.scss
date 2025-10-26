@@ -1,0 +1,18 @@
+// Main SCSS file for vinyl turntable
+// Variables
+$turntable-color: #2c2c2c;
+$record-color: #1a1a1a;
+$tonearm-color: #333;
+$control-color: #444;
+$board-body-width: 1.3;
+$disk-size: 42em;
+$base-extra-size: 3em;
+$base-offsetY: calc(#{$base-extra-size} / 2);
+$base-offsetX: calc(#{$base-extra-size} / (-2));
+$reflex: #ffffff;
+$dsd: #999999;
+$lsd: #b8b8b8;
+$phonohraph-widgt: 112;
+$phonohraph-hgth: 90;
+$base-offset-bot: 5.5;
+$base-offset-left: 5.5;

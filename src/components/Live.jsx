@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Live = () => {
+   const [isPlaying, setIsPlaying] = useState(false);
+   const audioRef = useRef(null);
+
+   useEffect(() => {
+      // Создаем аудио элемент с ссылкой из плейлиста
+      audioRef.current = new Audio("http://stream1.early1900s.org:8080");
+      audioRef.current.loop = true;
+
+      return () => {
+         if (audioRef.current) {
+            audioRef.current.pause();
+         }
+      };
+   }, []);
+
+   const toggleRadio = () => {
+      if (audioRef.current) {
+         if (isPlaying) {
+            audioRef.current.pause();
+            setIsPlaying(false);
+         } else {
+            audioRef.current.play().catch((error) => {
+               console.error("Ошибка воспроизведения радио:", error);
+            });
+            setIsPlaying(true);
+         }
+      }
+   };
+
    return (
-      <div class="live">
-         <iframe
-            id="youtube-player"
-            class="live__player"
-            src="http://74.208.228.126:8020/;stream.mp3"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-         ></iframe>
+      <div className="live">
+         <button
+            className={`live__switcher ${
+               isPlaying ? "live__switcher--active" : ""
+            }`}
+            onClick={toggleRadio}
+         >
+            {isPlaying ? "STOP" : "LIVE"}
+         </button>
       </div>
    );
 };

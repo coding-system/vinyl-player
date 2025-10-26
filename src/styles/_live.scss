@@ -1,0 +1,42 @@
+.live {
+   z-index: 100;
+   opacity: 1;
+   position: absolute;
+   top: 0;
+   left: 0;
+   // pointer-events: none;
+   user-select: none;
+   transform: translate(-1px);
+   display: flex;
+   gap: 3rem;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: start;
+   &__player {
+      width: 400px;
+      height: 200px;
+   }
+   &__switcher {
+      background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+      color: #232526;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.75rem 2.5rem;
+      box-shadow: 0 4px 18px rgba(250, 112, 154, 0.12),
+         0 1.5px 6px rgba(254, 225, 64, 0.09);
+      cursor: pointer;
+      transition: background 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), color 0.2s,
+         transform 0.15s;
+      outline: none;
+
+      &--active {
+         background: linear-gradient(90deg, #00ff00 0%, #00cc00 100%);
+         color: #000;
+         box-shadow: 0 4px 18px rgba(0, 255, 0, 0.3),
+            0 1.5px 6px rgba(0, 255, 0, 0.2);
+         animation: pulse 1.5s infinite;
+      }
+   }
+}

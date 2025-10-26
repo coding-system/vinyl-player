@@ -1,0 +1,118 @@
+.volume {
+   font-size: 1rem;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   right: 7rem;
+   &__text {
+      font-family: "Roboto";
+      text-transform: uppercase;
+      position: absolute;
+      bottom: -1.5em;
+      left: 4%;
+      font-size: 1em;
+      letter-spacing: 0.13em;
+      color: #616161;
+   }
+   &__pit {
+      position: relative;
+      width: 5em;
+      height: 35em;
+      background-color: #cecece;
+      box-shadow: inset 0.3em 0.3em 0.7em #4d4d4d,
+         inset -0.3em -0.3em 0.7em #ffffff;
+      border-radius: 0.3em;
+      &-pt1 {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 0.8em;
+         height: 30em;
+         background-color: #3d3d3d;
+         box-shadow: inset 0.1em 0 0.4em #000000;
+         border-radius: 0.4em;
+      }
+   }
+   &__slid {
+      // transition: all 0.1s linear;
+      overflow: hidden;
+      transform-origin: center center;
+      position: absolute;
+      // bottom: 43.5%;
+      // bottom: -6.2%;
+      bottom: 93%;
+      left: -1.6em;
+      background-color: #fff;
+      background: linear-gradient(45deg, #c1c2bf, #ecedea, #c7c8ce);
+      width: 4em;
+      height: 4em;
+      box-shadow: 0.2em 0.2em 0.3em #464646;
+      border-radius: 0.1em;
+      &::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background-color: #ff0000;
+         background: linear-gradient(
+            #c4c4c4,
+            #dddddd,
+            #ffffff,
+            #bdbdbd,
+            #8f8f8f
+         );
+         height: 0.6em;
+         width: 100%;
+         box-shadow: 0 0.8em 1.4em #000, 0 -0.4em 0.6em #ffffff;
+      }
+   }
+   &__scale {
+      color: #a8a9a6;
+      // padding-top: 1em;
+      // padding-bottom: 1em;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 5.3em;
+      height: 30em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: end;
+   }
+   &__dash {
+      &-text {
+         width: 3em;
+         color: #6e6e6e;
+         font-size: 1.2em;
+         font-family: "Roboto";
+         position: absolute;
+         left: -220%;
+         top: -250%;
+         text-align: end;
+      }
+      &-full {
+         // padding-top: 1em;
+         // padding-bottom: 1em;
+         position: absolute;
+         top: 0;
+         right: 0;
+         background-color: currentColor;
+         width: 0.2em;
+         height: 100%;
+      }
+      &-short {
+         width: 1em;
+         height: 0.1em;
+         background-color: currentColor;
+      }
+      &-long {
+         position: relative;
+         width: 1.8em;
+         height: 0.2em;
+         background-color: currentColor;
+      }
+   }
+}

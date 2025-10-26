@@ -16,6 +16,9 @@ const Tonearm = () => {
                <div class="tonearm__balance-pt3"></div>
                <div class="tonearm__balance-pt4"></div>
                <div class="tonearm__balance-pt5"></div>
+               <div class="tonearm__balance-pt6"></div>
+               <div class="tonearm__balance-pt7"></div>
+               <div class="tonearm__balance-pt8"></div>
             </div>
             <div class="tonearm__center">
                <div class="tonearm__center-pt1"></div>
@@ -33,24 +36,31 @@ const Tonearm = () => {
             </div>
             <div class="tonearm__head">
                <div class="tonearm__head-pt1"></div>
-               <div class="tonearm__head-pt2">
-                  <div class="tonearm__head-stick">
+               <div class="tonearm__head-pt2"></div>
+               <div class="tonearm__head-pt3">
+                  {/* <div class="tonearm__head-stick">
                      <div class="tonearm__head-stick-pt1"></div>
                      <div class="tonearm__head-stick-pt2"></div>
                      <div class="tonearm__head-stick-pt3"></div>
+                  </div> */}
+
+                  <div class="tonearm__head-body1"></div>
+                  <div class="tonearm__head-body2">
+                     <div className="tonearm__head-stick">
+                        <div class="tonearm__head-stick-pt1"></div>
+                        <div class="tonearm__head-stick-pt2"></div>
+                     </div>
+                     <div class="tonearm__head-tail"></div>
+                     <div class="tonearm__head-dots">
+                        <div class="tonearm__head-dot">
+                           <div class="tonearm__head-pin"></div>
+                        </div>
+                        <div class="tonearm__head-dot">
+                           <div class="tonearm__head-pin"></div>
+                        </div>
+                     </div>
                   </div>
                </div>
-               <div class="tonearm__head-pt3">
-                  <div class="tonearm__head-dots">
-                     <div class="tonearm__head-dot">
-                        <div class="tonearm__head-pin"></div>
-                     </div>
-                     <div class="tonearm__head-dot">
-                        <div class="tonearm__head-pin"></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="tonearm__head-pt4"></div>
                <div class="tonearm__head-pt5"></div>
                <div class="tonearm__head-pt6"></div>
             </div>

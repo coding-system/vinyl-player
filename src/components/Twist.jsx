@@ -3,14 +3,14 @@ import "../styles/main.scss";
 
 const Twist = () => {
    return (
-      <div class="twist">
-         <div class="twist__base">
-            <div class="twist__body">
-               <div class="twist__body-pt1"></div>
-               <div class="twist__body-pt2">
-                  <div class="twist__body-pt4"></div>
+      <div className="twist">
+         <div className="twist__base">
+            <div className="twist__body">
+               <div className="twist__body-pt1"></div>
+               <div className="twist__body-pt2">
+                  <div className="twist__body-pt4"></div>
                </div>
-               <div class="twist__body-pt3"></div>
+               <div className="twist__body-pt3 twist__body-pt3-disabled"></div>
             </div>
          </div>
       </div>

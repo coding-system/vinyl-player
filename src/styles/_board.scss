@@ -1,0 +1,57 @@
+.board {
+   position: relative;
+   top: 0;
+   left: 0;
+   box-shadow: inset 1em 1em 1em #d4d4d4, inset -1em -1em 1em #ffffff;
+   background-color: #ff0000;
+   width: 100%;
+   height: 100%;
+   border-radius: #{$board-body-width}em;
+   &__bort-1 {
+      $board-size-1: 1;
+      position: absolute;
+      top: -#{$board-size-1 - 0.4}em;
+      left: -#{$board-size-1}em;
+      width: calc(100% + #{2 * $board-size-1}em);
+      height: calc(100% + #{2 * $board-size-1}em);
+      border-radius: #{$board-size-1 + $board-body-width}em;
+      background-color: #e8e8e8;
+      background: conic-gradient(
+         from 0deg,
+         #d7d7db,
+         #a9a9ad,
+         #757579,
+         #a5a4aa,
+         #cdccd4,
+         #e1e1eb,
+         #a0a0a5,
+         #6a6a6d,
+         #9b9ca0,
+         #d7d7db
+      );
+   }
+   &__bort-2 {
+      $board-size-2: 0.6;
+
+      position: absolute;
+      top: -#{$board-size-2 - 0.2}em;
+      left: -#{$board-size-2}em;
+      width: calc(100% + #{2 * $board-size-2}em);
+      height: calc(100% + #{2 * $board-size-2}em);
+      border-radius: #{$board-size-2 + $board-body-width}em;
+      background-color: #dbdbdb;
+      filter: blur(0.1em);
+   }
+   &__bort-3 {
+      $board-size-3: 0.2;
+
+      position: absolute;
+      top: -#{$board-size-3}em;
+      left: -#{$board-size-3}em;
+      width: calc(100% + #{2 * $board-size-3}em);
+      height: calc(100% + #{2 * $board-size-3}em);
+      border-radius: #{$board-size-3 + $board-body-width}em;
+      background-color: #e8e8e8;
+      box-shadow: inset 0 0 0.8em rgba(0, 0, 0, 0.5);
+   }
+}
