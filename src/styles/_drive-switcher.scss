@@ -1,0 +1,118 @@
+.drive-switcher {
+   font-size: 0.8rem;
+   position: absolute;
+   bottom: 17rem;
+   right: 7rem;
+   z-index: 16;
+   &__base {
+      transform-origin: center center;
+      position: relative;
+      width: 7em;
+      height: 7em;
+      border-radius: 50%;
+      box-shadow: inset 0.4em 0.4em 1.2em #afafaf,
+         inset -0.4em -0.4em 1.2em #ffffff,
+         -0.2em -0.2em 0.5em rgba(255, 255, 255, 1);
+      &-playing {
+         box-shadow: inset 0.4em 0.4em 1.2em #afafaf,
+            inset -0.4em -0.4em 1.2em #ffffff,
+            inset 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.5);
+      }
+   }
+   &__body {
+      &-pt1 {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         // background-color: #b9b7c0;
+         background: conic-gradient(
+            #d7d7e0,
+            #d7d7e6,
+            #f5f5fd,
+            #ffffff,
+            #f5f5fd,
+            #d5d5e9,
+            #f7f7ff,
+            #ffffff,
+            #d7d7e0
+         );
+         width: 80%;
+         height: 80%;
+         border-radius: 50%;
+         box-shadow: 0.3em 0.3em 0.2em rgba(0, 0, 0, 0.5),
+            0 0 0.5em rgba(0, 0, 0, 0.5);
+         &-playing {
+            width: 76%;
+            height: 76%;
+            background: conic-gradient(
+               #47504b,
+               #47504c,
+               #515a53,
+               #565e58,
+               #515a53,
+               #464f4c,
+               #525e56,
+               #565e58,
+               #47504b
+            );
+            box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0);
+         }
+      }
+      &-pt2 {
+         transform-origin: top left;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background: conic-gradient(
+            #c0c0c0,
+            #c3c3c9,
+            #9e9e9e,
+            #ffffff,
+            #cdcdce,
+            #c3c3c9,
+            #9e9e9e,
+            #ffffff,
+            #c0c0c0
+         );
+         width: 72%;
+         height: 72%;
+         border-radius: 50%;
+         &-playing {
+            width: 68%;
+            height: 68%;
+            // box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.8);
+            background: conic-gradient(
+               #b7b7b7,
+               #babac2,
+               #959595,
+               #f0f0f0,
+               #c3c3c4,
+               #babac2,
+               #959595,
+               #f0f0f0,
+               #b7b7b7
+            );
+         }
+      }
+   }
+   &__label {
+      position: absolute;
+      top: -2.4em;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+      &-text {
+         color: #6e6e6e;
+         font-size: 1.9em;
+         &--special {
+            font-size: 1.2em;
+         }
+      }
+   }
+}

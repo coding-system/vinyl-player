@@ -4,4 +4,5 @@ export const audioState = {
    volume: 25, // Громкость
    twistSpinning: false, // Twist крутится/не крутится
    vinylSpinning: false, // Пластинка крутится/не крутится
+   driveSwitch: false, // Диск
 };
