@@ -1,10 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/main.scss";
+import { useSelector } from "react-redux";
 
 const Vinyl = () => {
+   const vinylBoxRef = useRef(null);
+   const vinylSpinning = useSelector((state) => state.audio.vinylSpinning);
+   const animationFrameRef = useRef(null);
+   const startTimeRef = useRef(null);
+   const initialAngleRef = useRef(0);
+
+   useEffect(() => {
+      if (vinylSpinning) {
+         startTimeRef.current = performance.now();
+         const animate = (timestamp) => {
+            const elapsed = (timestamp - startTimeRef.current) / 1000; // секунды
+            const angle = (initialAngleRef.current + elapsed * 198) % 360;
+            if (vinylBoxRef.current) {
+               vinylBoxRef.current.style.rotate = `${angle}deg`;
+            }
+            animationFrameRef.current = requestAnimationFrame(animate);
+         };
+         animationFrameRef.current = requestAnimationFrame(animate);
+      } else {
+         if (vinylBoxRef.current && animationFrameRef.current) {
+            const currentRotate = vinylBoxRef.current.style.rotate;
+            const match = currentRotate.match(/(\d+\.?\d*)deg/);
+            if (match) {
+               initialAngleRef.current = parseFloat(match[1]);
+            }
+         }
+         if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+            animationFrameRef.current = null;
+         }
+      }
+
+      return () => {
+         if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+         }
+      };
+   }, [vinylSpinning]);
+
    return (
       <div class="vinyl">
-         <div class="vinyl__box">
+         <div class="vinyl__box" ref={vinylBoxRef}>
             <div class="vinyl__body">
                <div class="vinyl__center">
                   <div class="vinyl__out"></div>
