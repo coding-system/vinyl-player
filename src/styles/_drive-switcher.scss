@@ -4,8 +4,8 @@
    position: absolute;
    // bottom: 17rem;
    // right: 7rem;
-   bottom: 2rem;
-   left: 2rem;
+   top: 2rem;
+   right: 2rem;
    z-index: 16;
    &__base {
       transform-origin: center center;
@@ -45,22 +45,23 @@
          height: 80%;
          border-radius: 50%;
          box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5),
-            0 0 0.5em rgba(0, 0, 0, 0.5), -0.25em -0.25em 0.2em rgb(255, 255, 255);
+            0 0 0.5em rgba(0, 0, 0, 0.5),
+            -0.25em -0.25em 0.2em rgb(255, 255, 255);
          &-playing {
             width: 76%;
             height: 76%;
             background: conic-gradient(
-               #47504b,
-               #47504c,
-               #515a53,
-               #565e58,
-               #515a53,
-               #464f4c,
-               #525e56,
-               #565e58,
-               #47504b
+               #d7d7e0,
+               #d7d7e6,
+               #f5f5fd,
+               #ffffff,
+               #f5f5fd,
+               #d5d5e9,
+               #f7f7ff,
+               #ffffff,
+               #d7d7e0
             );
-            box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0);
+            box-shadow: 0.2em 0.2em 0.2em rgba(255, 0, 0, 0);
          }
       }
       &-pt2 {
@@ -80,12 +81,12 @@
             #ffffff,
             #c0c0c0
          );
-         width: 72%;
-         height: 72%;
+         width: 74%;
+         height: 74%;
          border-radius: 50%;
          &-playing {
-            width: 68%;
-            height: 68%;
+            width: 70%;
+            height: 70%;
             // box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.8);
             background: conic-gradient(
                #a5a5a5,
