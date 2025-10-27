@@ -14,7 +14,11 @@ const DriveSwitcher = () => {
    return (
       <div className="drive-switcher" onClick={handleClick}>
          <div className="drive-switcher__label">
-            <span className="drive-switcher__label-text">
+            <span
+               className={`drive-switcher__label-text ${
+                  driveSwitch ? "drive-switcher__label-text-playing" : ""
+               }`}
+            >
                <i class="bi bi-power"></i>
             </span>
             {/* <span className="drive-switcher__label-text">

@@ -1,8 +1,11 @@
 .drive-switcher {
-   font-size: 0.8rem;
+   // font-size: 0.8rem;
+   font-size: 1.5rem;
    position: absolute;
-   bottom: 17rem;
-   right: 7rem;
+   // bottom: 17rem;
+   // right: 7rem;
+   bottom: 2rem;
+   left: 2rem;
    z-index: 16;
    &__base {
       transform-origin: center center;
@@ -16,7 +19,8 @@
       &-playing {
          box-shadow: inset 0.4em 0.4em 1.2em #afafaf,
             inset -0.4em -0.4em 1.2em #ffffff,
-            inset 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.5),-0.2em -0.2em 0.5em rgb(255, 255, 255);
+            inset 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.5),
+            -0.2em -0.2em 0.5em rgb(255, 255, 255);
       }
    }
    &__body {
@@ -40,8 +44,8 @@
          width: 80%;
          height: 80%;
          border-radius: 50%;
-         box-shadow: 0.3em 0.3em 0.2em rgba(0, 0, 0, 0.5),
-            0 0 0.5em rgba(0, 0, 0, 0.5),-0.2em -0.2em 0.2em rgb(255, 255, 255);
+         box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5),
+            0 0 0.5em rgba(0, 0, 0, 0.5), -0.25em -0.25em 0.2em rgb(255, 255, 255);
          &-playing {
             width: 76%;
             height: 76%;
@@ -84,34 +88,38 @@
             height: 68%;
             // box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.8);
             background: conic-gradient(
-               #b7b7b7,
-               #babac2,
-               #959595,
-               #f0f0f0,
-               #c3c3c4,
-               #babac2,
-               #959595,
-               #f0f0f0,
-               #b7b7b7
+               #a5a5a5,
+               #a8a8af,
+               #868686,
+               #d6d6d6,
+               #afafb0,
+               #a8a8af,
+               #868686,
+               #d6d6d6,
+               #a5a5a5
             );
          }
       }
    }
    &__label {
       position: absolute;
-      top: -2.4em;
+      top: calc(50% - 0.08em);
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 0.5em;
+      z-index: 123;
       &-text {
-         color: #6e6e6e;
+         color: #838383;
          font-size: 1.9em;
          &--special {
             font-size: 1.2em;
+         }
+         &-playing {
+            font-size: 1.8em;
          }
       }
    }
