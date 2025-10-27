@@ -7,6 +7,7 @@ const Live = () => {
    useEffect(() => {
       // Создаем аудио элемент с ссылкой из плейлиста
       audioRef.current = new Audio("http://stream1.early1900s.org:8080");
+      // audioRef.current = new Audio("http://radio.bigblueswing.com:8002/");
       audioRef.current.loop = true;
 
       return () => {

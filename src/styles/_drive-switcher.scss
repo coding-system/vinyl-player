@@ -12,11 +12,11 @@
       border-radius: 50%;
       box-shadow: inset 0.4em 0.4em 1.2em #afafaf,
          inset -0.4em -0.4em 1.2em #ffffff,
-         -0.2em -0.2em 0.5em rgba(255, 255, 255, 1);
+         -0.2em -0.2em 0.5em rgb(255, 255, 255);
       &-playing {
          box-shadow: inset 0.4em 0.4em 1.2em #afafaf,
             inset -0.4em -0.4em 1.2em #ffffff,
-            inset 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.5);
+            inset 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.5),-0.2em -0.2em 0.5em rgb(255, 255, 255);
       }
    }
    &__body {
@@ -41,7 +41,7 @@
          height: 80%;
          border-radius: 50%;
          box-shadow: 0.3em 0.3em 0.2em rgba(0, 0, 0, 0.5),
-            0 0 0.5em rgba(0, 0, 0, 0.5);
+            0 0 0.5em rgba(0, 0, 0, 0.5),-0.2em -0.2em 0.2em rgb(255, 255, 255);
          &-playing {
             width: 76%;
             height: 76%;
