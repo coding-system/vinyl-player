@@ -2,7 +2,7 @@ import React from "react";
 import Board from "./components/Board";
 import Volume from "./components/Volume";
 import Jack from "./components/Jack";
-import PowerSwitcher from "./components/PowerSwitcher";
+import TrackSwitcher from "./components/TrackSwitcher";
 import Twist from "./components/Twist";
 import Holder from "./components/Holder";
 import Base from "./components/Base";
@@ -17,11 +17,11 @@ function App() {
          <Volume />
          <Jack />
          <Twist />
-         <PowerSwitcher />
+         <TrackSwitcher />
          <Base />
          <Tonearm />
          <Holder />
-         <Vinyl />
+         <Vinyl />   
          <DriveSwitcher />
       </div>
    );

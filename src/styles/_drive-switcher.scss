@@ -2,10 +2,10 @@
    // font-size: 0.8rem;
    font-size: 1.5rem;
    position: absolute;
-   // bottom: 17rem;
-   // right: 7rem;
-   top: 2rem;
-   right: 2rem;
+   bottom: 2rem;
+   left: 2rem;
+   // top: 2rem;
+   // right: 2rem;
    z-index: 16;
    &__base {
       transform-origin: center center;
@@ -48,8 +48,8 @@
             0 0 0.5em rgba(0, 0, 0, 0.5),
             -0.25em -0.25em 0.2em rgb(255, 255, 255);
          &-playing {
-            width: 76%;
-            height: 76%;
+            width: 78%;
+            height: 78%;
             background: conic-gradient(
                #d7d7e0,
                #d7d7e6,
@@ -85,20 +85,31 @@
          height: 74%;
          border-radius: 50%;
          &-playing {
-            width: 70%;
-            height: 70%;
+            width: 72%;
+            height: 72%;
             // box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.8);
             background: conic-gradient(
-               #a5a5a5,
-               #a8a8af,
-               #868686,
-               #d6d6d6,
-               #afafb0,
-               #a8a8af,
-               #868686,
-               #d6d6d6,
-               #a5a5a5
+               #c0c0c0,
+               #c3c3c9,
+               #9e9e9e,
+               #ffffff,
+               #cdcdce,
+               #c3c3c9,
+               #9e9e9e,
+               #ffffff,
+               #c0c0c0
             );
+            overflow: hidden;
+            &::before {
+               content: "";
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0, 0, 0, 0.08);
+            }
          }
       }
    }

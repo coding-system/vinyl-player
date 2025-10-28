@@ -6,8 +6,12 @@ const Live = () => {
 
    useEffect(() => {
       // Создаем аудио элемент с ссылкой из плейлиста
-      audioRef.current = new Audio("http://stream1.early1900s.org:8080");
-      // audioRef.current = new Audio("http://radio.bigblueswing.com:8002/");
+      audioRef.current = new Audio("http://stream1.early1900s.org:8080"); 
+      // https://2.mystreaming.net/uber/boomerang1920s/icecast.audio ----------------https://mytuner-radio.com/radio/greatest-hits-1920s-501210/ 
+      // https://s1.voscast.com:10413/stream ------------https://www.swingstreetradio.org/old-time-radio/swing-street-ballroom/
+      // https://uk3.internet-radio.com/proxy/1940sradio/stream-------------------https://www.1940sradio.com/
+
+
       audioRef.current.loop = true;
 
       return () => {

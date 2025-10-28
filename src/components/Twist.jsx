@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 const Twist = () => {
    const twistTopRef = useRef(null);
    const twistSpinning = useSelector((state) => state.audio.twistSpinning);
+   const powerSwitch = useSelector((state) => state.audio.powerSwitch);
    const animationFrameRef = useRef(null);
    const startTimeRef = useRef(null);
    const initialAngleRef = useRef(0);
@@ -50,7 +51,13 @@ const Twist = () => {
                <div className="twist__body-pt2" ref={twistTopRef}>
                   <div className="twist__body-pt4"></div>
                </div>
-               <div className="twist__body-pt3 twist__body-pt3-disabled"></div>
+               <div
+                  className={`twist__body-pt3 ${
+                     powerSwitch
+                        ? "twist__body-pt3-playing"
+                        : "twist__body-pt3-disabled"
+                  }`}
+               ></div>
             </div>
          </div>
       </div>

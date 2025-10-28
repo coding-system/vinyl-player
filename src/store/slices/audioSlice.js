@@ -21,23 +21,33 @@ const audioSlice = createSlice({
             state.twistSpinning = false;
             state.vinylSpinning = false;
             state.driveSwitch = false;
-         } else {
-            // При включении питания включаем вращение если driveSwitch уже включен
-            state.vinylSpinning = state.driveSwitch;
-            state.twistSpinning = state.driveSwitch;
+            state.tonearmOnVinyl = false;
          }
       },
       toggleDriveSwitch(state) {
          // Можно переключать привод только если включено питание
          if (state.powerSwitch) {
             state.driveSwitch = !state.driveSwitch;
-            // Пластинка и twist крутятся когда включен привод
-            state.vinylSpinning = state.driveSwitch;
-            state.twistSpinning = state.driveSwitch;
          }
       },
       toggleTonearmOnVinyl(state) {
+         // Можно работать с тонармом только если включено питание
+         if (!state.powerSwitch) return;
+
          state.tonearmOnVinyl = !state.tonearmOnVinyl;
+
+         // При поднятии тонарма останавливаем диск
+         if (!state.tonearmOnVinyl) {
+            state.vinylSpinning = false;
+            state.twistSpinning = false;
+         }
+      },
+      startVinyl(state) {
+         // Запускаем диск (без опускания тонарма)
+         if (state.powerSwitch && !state.vinylSpinning) {
+            state.vinylSpinning = true;
+            state.twistSpinning = true;
+         }
       },
       setVolume(state, action) {
          state.volume = action.payload;
@@ -49,6 +59,7 @@ export const {
    togglePowerSwitch,
    toggleDriveSwitch,
    toggleTonearmOnVinyl,
+   startVinyl,
    setVolume,
 } = audioSlice.actions;
 

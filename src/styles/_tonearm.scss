@@ -17,7 +17,7 @@
       // top: 50%;
       // left: 50%;
       // transform: translate(-50%, -50%);
-      
+
       &-pt1 {
          //ВНЕШНЯЯ
          width: 22em;
@@ -94,13 +94,26 @@
       position: relative;
       top: 50%;
       left: 50%;
-      transition: 0.5s ease;
+      transition: 1s ease;
       display: flex;
       justify-content: center;
       align-items: self-start;
       flex-direction: column;
       &-playing {
-         transform: rotate(22deg);
+         $angle: 22;
+         $angle-delta: 0.05;
+         // @keyframes tonearm-playing {
+         //    0% {
+         //       // transform: rotate(21.95deg);
+         //       transform: rotate(calc($angle - $angle-delta) deg);
+         //    }
+         //    100% {
+         //       transform: rotate(calc($angle + $angle-delta) deg);
+         //    }
+         // }
+         // animation: tonearm-playing 0.3s linear alternate infinite;
+         transform: rotate(19deg);
+         transition: 2s ease;
       }
    }
    &__balance {
@@ -506,7 +519,7 @@
          #cfcfcf,
          #c2c2c2
       );
-      height: calc(56em + #{$balance-height}em);
+      height: calc(52em + #{$balance-height}em);
       width: #{$neck-width}em;
       display: flex;
       justify-content: center;

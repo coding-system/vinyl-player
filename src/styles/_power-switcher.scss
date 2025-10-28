@@ -1,4 +1,4 @@
-.power-switcher {
+.track-switcher {
    font-size: 1.2rem;
    $reflex: #ffffff;
    $dsd: #424242;
@@ -117,7 +117,7 @@
             transform: translate(-50%, -50%) rotate(0deg);
             box-shadow: -0.2em -0.2em 0.4em $reflex, 0.2em 0.5em 0.6em $lsd,
                0.4em 0 0.2em $udsd, -0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset 0.2em 0.2em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
@@ -127,7 +127,7 @@
             transform: translate(-50%, -50%) rotate(-45deg);
             box-shadow: 0em -0.2em 0.4em $reflex, 0em 0.5em 0.6em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset 0em 0.2em 0.1em $dot-shadow;
                color: #5e5e63;
             }
@@ -136,7 +136,7 @@
             transform: translate(-50%, -50%) rotate(45deg);
             box-shadow: -0.2em 0em 0.4em $reflex, 0.5em -0em 0.6em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset 0.2em 0em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
@@ -146,7 +146,7 @@
             transform: translate(-50%, -50%) rotate(90deg);
             box-shadow: -0.2em 0.2em 0.4em $reflex, 0.2em -0.5em 0.6em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset 0.1em -0.1em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
@@ -156,7 +156,7 @@
             transform: translate(-50%, -50%) rotate(135deg);
             box-shadow: 0em 0.2em 0.4em $reflex, 0em -0.5em 0.6em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset 0em -0.2em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
@@ -166,7 +166,7 @@
             transform: translate(-50%, -50%) rotate(180deg);
             box-shadow: 0.2em 0.2em 0.4em $reflex, -0.2em -0.5em 0.6em $lsd,
                -0.4em 0 0.2em $udsd, 0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset -0.2em -0.2em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
@@ -176,7 +176,7 @@
             transform: translate(-50%, -50%) rotate(225deg);
             box-shadow: 0.2em 0em 0.4em $reflex, -0.5em -0em 0.6em $lsd,
                -0.2em 0 0.1em $udsd, 0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset -0.2em 0em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
@@ -186,7 +186,7 @@
             transform: translate(-50%, -50%) rotate(270deg);
             box-shadow: 0.2em -0.2em 0.4em $reflex, -0.2em 0.5em 0.6em $lsd,
                -0.2em 0 0.1em $udsd, 0.2em 0 0.1em $udsd;
-            & .power-switcher__body-pt4-dot {
+            & .track-switcher__body-pt4-dot {
                box-shadow: inset -0.1em 0.1em 0.1em $dot-shadow;
                // background-color: #93fe62;
                color: #93fe62;
