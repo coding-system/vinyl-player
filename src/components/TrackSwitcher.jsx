@@ -1,38 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentTrack } from "../store/slices/audioSlice";
 
 const TrackSwitcher = () => {
-   const [trackIndex, setTrackIndex] = useState(0); // 0-2 = track numbers 1-3
-
-   // Массив треков (пока заглушка, потом добавим реальные данные)
-   const TRACKS = [
-      {
-         stream: "http://stream1.early1900s.org:8080",
-         image: "",
-         name: "Dismuke",
-      },
-      {
-         stream: "https://uk3.internet-radio.com/proxy/1940sradio/stream",
-         image: "",
-         name: "Track 2",
-      },
-      {
-         stream: "https://s1.voscast.com:10413/stream",
-         image: "",
-         name: "Track 3",
-      },
-      {
-         stream: "https://2.mystreaming.net/uber/boomerang1920s/icecast.audio",
-         image: "",
-         name: "Track 3",
-      },
-   ];
+   const dispatch = useDispatch();
+   const trackIndex = useSelector((state) => state.audio.currentTrackIndex);
+   const tracks = useSelector((state) => state.audio.tracks);
 
    const handleClick = () => {
       // Циклически переключаем между треками 1-3
-      setTrackIndex((prev) => (prev >= 2 ? 0 : prev + 1));
+      const newIndex = trackIndex >= 2 ? 0 : trackIndex + 1;
+      dispatch(setCurrentTrack(newIndex));
+      console.log("Выбран трек:", tracks[newIndex].name);
    };
 
-   // Определяем класс для track-switcher__body-pt4
    const getTrackClass = () => {
       return `track-switcher__body-pt4-track-${trackIndex + 1}`;
    };

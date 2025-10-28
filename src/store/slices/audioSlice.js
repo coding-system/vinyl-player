@@ -1,5 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const TRACKS = [
+   {
+      stream: "http://stream1.early1900s.org:8080",
+      source: "https://radiodismuke.com/",
+      image: "",
+      name: "Dismuke",
+   },
+   {
+      stream: "https://uk3.internet-radio.com/proxy/1940sradio/stream",
+      source: "https://www.1940sradio.com/",
+      image: "",
+      name: "1940s Radio",
+   },
+   {
+      stream: "https://s1.voscast.com:10413/stream",
+      source: "https://www.swingstreetradio.org/",
+      image: "",
+      name: "Swing Street",
+   },
+   {
+      stream: "https://2.mystreaming.net/uber/boomerang1920s/icecast.audio",
+      source: "https://mytuner-radio.com/radio/greatest-hits-1920s-501210/",
+      image: "",
+      name: "Greatest Hits 1920s",
+   },
+];
+// https://2.mystreaming.net/uber/boomerang1920s/icecast.audio ----------------https://mytuner-radio.com/radio/greatest-hits-1920s-501210/
+// https://s1.voscast.com:10413/stream ------------https://www.swingstreetradio.org/old-time-radio/swing-street-ballroom/
+// https://uk3.internet-radio.com/proxy/1940sradio/stream-------------------https://www.1940sradio.com/
+
 const initialState = {
    powerSwitch: false,
    driveSwitch: false,
@@ -7,6 +37,8 @@ const initialState = {
    volume: 25,
    twistSpinning: false,
    vinylSpinning: false,
+   currentTrackIndex: 0,
+   tracks: TRACKS,
 };
 
 const audioSlice = createSlice({
@@ -52,6 +84,9 @@ const audioSlice = createSlice({
       setVolume(state, action) {
          state.volume = action.payload;
       },
+      setCurrentTrack(state, action) {
+         state.currentTrackIndex = action.payload;
+      },
    },
 });
 
@@ -61,6 +96,7 @@ export const {
    toggleTonearmOnVinyl,
    startVinyl,
    setVolume,
+   setCurrentTrack,
 } = audioSlice.actions;
 
 export default audioSlice.reducer;

@@ -57,15 +57,17 @@
          transform: translate(-50%, -50%);
          background-color: #ff0000;
          background: linear-gradient(
-            #c4c4c4,
-            #dddddd,
+            #e6e6e6,
+            #eeeeee,
             #ffffff,
-            #bdbdbd,
-            #8f8f8f
+            #ffffff,
+            #ffffff,
+            #eeeeee,
+            #e6e6e6
          );
-         height: 0.6em;
+         height: 1em;
          width: 100%;
-         box-shadow: 0 0.8em 1.4em #000, 0 -0.4em 0.6em #ffffff;
+         box-shadow: 0 0.8em 1.4em #000000d8, 0 -0.4em 0.6em #00000005;
       }
    }
    &__scale {
