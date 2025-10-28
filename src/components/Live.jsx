@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setVolume } from "../store/slices/audioSlice";
 
 const Live = () => {
    const [isPlaying, setIsPlaying] = useState(false);
    const audioRef = useRef(null);
+   const dispatch = useDispatch();
    const currentTrack = useSelector(
       (state) => state.audio.tracks[state.audio.currentTrackIndex]
    );
@@ -12,6 +14,7 @@ const Live = () => {
    );
    const powerSwitch = useSelector((state) => state.audio.powerSwitch);
    const tonearmOnVinyl = useSelector((state) => state.audio.tonearmOnVinyl);
+   const volume = useSelector((state) => state.audio.volume);
 
    useEffect(() => {
       // Останавливаем текущий трек если играет
@@ -41,6 +44,13 @@ const Live = () => {
       };
    }, [currentTrackIndex, currentTrack.stream, isPlaying]);
 
+   // Управляем громкостью
+   useEffect(() => {
+      if (audioRef.current) {
+         audioRef.current.volume = volume / 100;
+      }
+   }, [volume]);
+
    useEffect(() => {
       const shouldPlay = powerSwitch && tonearmOnVinyl;
 
@@ -56,6 +66,24 @@ const Live = () => {
          }
       }
    }, [powerSwitch, tonearmOnVinyl, isPlaying]);
+
+   // Обработка колесика мыши для изменения громкости
+   useEffect(() => {
+      const handleWheel = (e) => {
+         if (audioRef.current) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -5 : 5;
+            const newVolume = Math.max(0, Math.min(100, volume + delta));
+            dispatch(setVolume(newVolume));
+         }
+      };
+
+      window.addEventListener("wheel", handleWheel, { passive: false });
+
+      return () => {
+         window.removeEventListener("wheel", handleWheel);
+      };
+   }, [volume, dispatch]);
 
    const toggleRadio = () => {
       if (audioRef.current) {
