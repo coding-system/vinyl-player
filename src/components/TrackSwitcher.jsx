@@ -8,8 +8,7 @@ const TrackSwitcher = () => {
    const tracks = useSelector((state) => state.audio.tracks);
 
    const handleClick = () => {
-      // Циклически переключаем между треками 1-3
-      const newIndex = trackIndex >= 2 ? 0 : trackIndex + 1;
+      const newIndex = trackIndex >= 4 ? 0 : trackIndex + 1;
       dispatch(setCurrentTrack(newIndex));
       console.log("Выбран трек:", tracks[newIndex].name);
    };
@@ -43,6 +42,12 @@ const TrackSwitcher = () => {
             </div>
             <div className="track-switcher__text track-switcher__text-3">
                <span className="track-switcher__text-content">3</span>
+            </div>
+            <div className="track-switcher__text track-switcher__text-4">
+               <span className="track-switcher__text-content">4</span>
+            </div>
+            <div className="track-switcher__text track-switcher__text-5">
+               <span className="track-switcher__text-content">5</span>
             </div>
          </div>
       </div>

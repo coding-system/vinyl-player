@@ -24,18 +24,14 @@ const Live = () => {
 
       // Создаем аудио элемент с текущей ссылкой на стрим
       audioRef.current = new Audio(currentTrack.stream);
+      // Проигрывание и громкость управляются в отдельном эффекте
       // https://2.mystreaming.net/uber/boomerang1920s/icecast.audio ----------------https://mytuner-radio.com/radio/greatest-hits-1920s-501210/
       // https://s1.voscast.com:10413/stream ------------https://www.swingstreetradio.org/old-time-radio/swing-street-ballroom/
       // https://uk3.internet-radio.com/proxy/1940sradio/stream-------------------https://www.1940sradio.com/
 
       audioRef.current.loop = true;
 
-      // Если был включен, запускаем новый трек
-      if (isPlaying) {
-         audioRef.current.play().catch((error) => {
-            console.error("Ошибка воспроизведения радио:", error);
-         });
-      }
+      // Старт/пауза и громкость будут обработаны ниже
 
       return () => {
          if (audioRef.current) {
@@ -53,26 +49,29 @@ const Live = () => {
 
    useEffect(() => {
       const shouldPlay = powerSwitch && tonearmOnVinyl;
+      const player = audioRef.current;
+      if (!player) return;
 
-      if (audioRef.current) {
-         if (shouldPlay && !isPlaying) {
-            audioRef.current.play().catch((error) => {
+      if (shouldPlay) {
+         player.volume = volume / 100; // всегда берем из стора
+         player
+            .play()
+            .then(() => setIsPlaying(true))
+            .catch((error) => {
                console.error("Ошибка воспроизведения радио:", error);
             });
-            setIsPlaying(true);
-         } else if (!shouldPlay && isPlaying) {
-            audioRef.current.pause();
-            setIsPlaying(false);
-         }
+      } else {
+         player.pause();
+         setIsPlaying(false);
       }
-   }, [powerSwitch, tonearmOnVinyl, isPlaying]);
+   }, [powerSwitch, tonearmOnVinyl, currentTrackIndex, volume]);
 
    // Обработка колесика мыши для изменения громкости
    useEffect(() => {
       const handleWheel = (e) => {
          if (audioRef.current) {
             e.preventDefault();
-            const delta = e.deltaY > 0 ? -5 : 5;
+            const delta = e.deltaY > 0 ? -1 : 1;
             const newVolume = Math.max(0, Math.min(100, volume + delta));
             dispatch(setVolume(newVolume));
          }

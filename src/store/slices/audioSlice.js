@@ -25,6 +25,12 @@ const TRACKS = [
       image: "",
       name: "Greatest Hits 1920s",
    },
+   {
+      stream: "https://chmedia.streamabc.net/79-ffm-mp3-192-2470075?sABC=6902136s%231%231761743722467_66707744%23puzrqvn-enqvb-jro&metaid=1761743722374_84648641&aw_0_1st.playerid=chmedia-radio-web&amsparams=playerid:chmedia-radio-web;skey:1761743727",
+      source: "https://www.flashbackfm.ch/",
+      image: "",
+      name: "Flashback FM",
+   },
 ];
 // https://2.mystreaming.net/uber/boomerang1920s/icecast.audio ----------------https://mytuner-radio.com/radio/greatest-hits-1920s-501210/
 // https://s1.voscast.com:10413/stream ------------https://www.swingstreetradio.org/old-time-radio/swing-street-ballroom/
@@ -32,7 +38,7 @@ const TRACKS = [
 
 const initialState = {
    powerSwitch: false,
-   driveSwitch: false,
+   // driveSwitch: false,
    tonearmOnVinyl: false,
    volume: 25,
    twistSpinning: false,

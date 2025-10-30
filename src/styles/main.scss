@@ -3,7 +3,7 @@
 @import "board.scss";
 @import "volume.scss";
 @import "jack.scss";
-@import "power-switcher.scss";
+@import "track-switcher.scss";
 @import "drive-switcher.scss";
 @import "twist.scss";
 @import "tonearm.scss";
@@ -50,3 +50,5 @@ body {
    width: #{$phonohraph-widgt}rem;
    height: #{$phonohraph-hgth}rem;
 }
+
+@import "media.scss";

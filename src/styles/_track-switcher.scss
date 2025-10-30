@@ -134,42 +134,42 @@
          }
          &-track-1 {
             transform: translate(-50%, -50%) rotate(45deg);
-            box-shadow: -0.2em 0em 0.4em $reflex, 0.5em -0em 0.6em $lsd,
+            box-shadow: -0.2em 0em 0.4em $reflex, 0.5em -0em 0.2em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
             & .track-switcher__body-pt4-dot {
-               box-shadow: inset 0.2em 0em 0.1em $dot-shadow;
+               box-shadow: inset 0.1em 0em 0.1em $dot-shadow;
                // background-color: #93fe62;
-               color: #93fe62;
+               // color: #93fe62;
             }
          }
          &-track-2 {
             transform: translate(-50%, -50%) rotate(90deg);
-            box-shadow: -0.2em 0.2em 0.4em $reflex, 0.2em -0.5em 0.6em $lsd,
+            box-shadow: -0.2em 0.2em 0.4em $reflex, 0.2em -0.5em 0.2em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
             & .track-switcher__body-pt4-dot {
                box-shadow: inset 0.1em -0.1em 0.1em $dot-shadow;
                // background-color: #93fe62;
-               color: #93fe62;
+               // color: #93fe62;
             }
          }
          &-track-3 {
             transform: translate(-50%, -50%) rotate(135deg);
-            box-shadow: 0em 0.2em 0.4em $reflex, 0em -0.5em 0.6em $lsd,
+            box-shadow: 0em 0.2em 0.4em $reflex, 0em -0.5em 0.2em $lsd,
                0.2em 0 0.1em $udsd, -0.2em 0 0.1em $udsd;
             & .track-switcher__body-pt4-dot {
-               box-shadow: inset 0em -0.2em 0.1em $dot-shadow;
+               box-shadow: inset 0em -0.1em 0.1em $dot-shadow;
                // background-color: #93fe62;
-               color: #93fe62;
+               // color: #93fe62;
             }
          }
          &-track-4 {
             transform: translate(-50%, -50%) rotate(180deg);
-            box-shadow: 0.2em 0.2em 0.4em $reflex, -0.2em -0.5em 0.6em $lsd,
+            box-shadow: 0.2em 0.2em 0.2em $reflex, -0.2em -0.5em 0.2em $lsd,
                -0.4em 0 0.2em $udsd, 0.2em 0 0.1em $udsd;
             & .track-switcher__body-pt4-dot {
-               box-shadow: inset -0.2em -0.2em 0.1em $dot-shadow;
+               box-shadow: inset -0.1em -0.1em 0.1em $dot-shadow;
                // background-color: #93fe62;
-               color: #93fe62;
+               // color: #93fe62;
             }
          }
          &-track-5 {
@@ -179,7 +179,7 @@
             & .track-switcher__body-pt4-dot {
                box-shadow: inset -0.2em 0em 0.1em $dot-shadow;
                // background-color: #93fe62;
-               color: #93fe62;
+               // color: #93fe62;
             }
          }
          &-track-6 {
@@ -189,7 +189,7 @@
             & .track-switcher__body-pt4-dot {
                box-shadow: inset -0.1em 0.1em 0.1em $dot-shadow;
                // background-color: #93fe62;
-               color: #93fe62;
+               // color: #93fe62;
             }
          }
          &-dot {
@@ -197,9 +197,9 @@
                box-shadow 0.1s 0s ease;
             position: absolute;
             top: 50%;
-            left: 0;
+            left: 5%;
             transform: translate(50%, -50%);
-            color: #5e5e63;
+            color: #f73d24;
             background-color: currentColor;
             width: 0.7em;
             height: 0.7em;
