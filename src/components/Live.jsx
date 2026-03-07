@@ -7,38 +7,36 @@ const Live = () => {
    const audioRef = useRef(null);
    const dispatch = useDispatch();
    const currentTrack = useSelector(
-      (state) => state.audio.tracks[state.audio.currentTrackIndex]
+      (state) => state.audio.tracks[state.audio.currentTrackIndex],
    );
    const currentTrackIndex = useSelector(
-      (state) => state.audio.currentTrackIndex
+      (state) => state.audio.currentTrackIndex,
    );
    const powerSwitch = useSelector((state) => state.audio.powerSwitch);
    const tonearmOnVinyl = useSelector((state) => state.audio.tonearmOnVinyl);
    const volume = useSelector((state) => state.audio.volume);
 
    useEffect(() => {
-      // Останавливаем текущий трек если играет
-      if (audioRef.current && isPlaying) {
+      if (audioRef.current) {
          audioRef.current.pause();
       }
 
       // Создаем аудио элемент с текущей ссылкой на стрим
-      audioRef.current = new Audio(currentTrack.stream);
+      const nextAudio = new Audio(currentTrack.stream);
       // Проигрывание и громкость управляются в отдельном эффекте
       // https://2.mystreaming.net/uber/boomerang1920s/icecast.audio ----------------https://mytuner-radio.com/radio/greatest-hits-1920s-501210/
       // https://s1.voscast.com:10413/stream ------------https://www.swingstreetradio.org/old-time-radio/swing-street-ballroom/
       // https://uk3.internet-radio.com/proxy/1940sradio/stream-------------------https://www.1940sradio.com/
 
-      audioRef.current.loop = true;
+      nextAudio.loop = true;
+      audioRef.current = nextAudio;
 
       // Старт/пауза и громкость будут обработаны ниже
 
       return () => {
-         if (audioRef.current) {
-            audioRef.current.pause();
-         }
+         nextAudio.pause();
       };
-   }, [currentTrackIndex, currentTrack.stream, isPlaying]);
+   }, [currentTrackIndex, currentTrack.stream]);
 
    // Управляем громкостью
    useEffect(() => {
