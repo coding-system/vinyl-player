@@ -5,6 +5,9 @@ import { setVolume } from "../store/slices/audioSlice";
 const Live = () => {
    const [isPlaying, setIsPlaying] = useState(false);
    const audioRef = useRef(null);
+   const playTimerRef = useRef(null);
+   const shouldPlayRef = useRef(false);
+   const volumeRef = useRef(25);
    const dispatch = useDispatch();
    const currentTrack = useSelector(
       (state) => state.audio.tracks[state.audio.currentTrackIndex],
@@ -38,11 +41,37 @@ const Live = () => {
       };
    }, [currentTrackIndex, currentTrack.stream]);
 
+   useEffect(() => {
+      const handleUnlock = () => {
+         const player = audioRef.current;
+         if (!player) return;
+
+         player.volume = volume / 100;
+         const playPromise = player.play();
+         if (playPromise && typeof playPromise.then === "function") {
+            playPromise
+               .then(() => {
+                  player.pause();
+               })
+               .catch((error) => {
+                  console.error("Ошибка разблокировки аудио:", error);
+               });
+         }
+      };
+
+      window.addEventListener("radio:unlock", handleUnlock);
+
+      return () => {
+         window.removeEventListener("radio:unlock", handleUnlock);
+      };
+   }, [volume]);
+
    // Управляем громкостью
    useEffect(() => {
       if (audioRef.current) {
          audioRef.current.volume = volume / 100;
       }
+      volumeRef.current = volume;
    }, [volume]);
 
    useEffect(() => {
@@ -50,19 +79,39 @@ const Live = () => {
       const player = audioRef.current;
       if (!player) return;
 
-      if (shouldPlay) {
-         player.volume = volume / 100; // всегда берем из стора
+      const playNow = () => {
+         player.volume = volumeRef.current / 100;
          player
             .play()
             .then(() => setIsPlaying(true))
             .catch((error) => {
                console.error("Ошибка воспроизведения радио:", error);
             });
+      };
+
+      if (shouldPlay) {
+         if (playTimerRef.current) {
+            clearTimeout(playTimerRef.current);
+         }
+
+         if (!shouldPlayRef.current) {
+            const delay = 3000;
+            playTimerRef.current = setTimeout(() => {
+               playNow();
+            }, delay);
+         } else {
+            playNow();
+         }
       } else {
+         if (playTimerRef.current) {
+            clearTimeout(playTimerRef.current);
+         }
          player.pause();
          setIsPlaying(false);
       }
-   }, [powerSwitch, tonearmOnVinyl, currentTrackIndex, volume]);
+
+      shouldPlayRef.current = shouldPlay;
+   }, [powerSwitch, tonearmOnVinyl, currentTrackIndex]);
 
    // Обработка колесика мыши для изменения громкости
    useEffect(() => {

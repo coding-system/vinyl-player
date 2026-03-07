@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/main.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { togglePowerSwitch } from "../store/slices/audioSlice";
+import {
+   startVinyl,
+   togglePowerSwitch,
+   toggleTonearmOnVinyl,
+} from "../store/slices/audioSlice";
 
 const DriveSwitcher = () => {
    const powerSwitch = useSelector((state) => state.audio.powerSwitch);
+   const tonearmOnVinyl = useSelector((state) => state.audio.tonearmOnVinyl);
    const dispatch = useDispatch();
 
    const handleClick = () => {
+      if (!powerSwitch && typeof window !== "undefined") {
+         window.dispatchEvent(new Event("radio:unlock"));
+      }
       dispatch(togglePowerSwitch());
    };
+
+   useEffect(() => {
+      if (!powerSwitch) {
+         return;
+      }
+
+      dispatch(startVinyl());
+      if (!tonearmOnVinyl) {
+         dispatch(toggleTonearmOnVinyl());
+      }
+   }, [powerSwitch, tonearmOnVinyl, dispatch]);
 
    return (
       <div className="drive-switcher" onClick={handleClick}>

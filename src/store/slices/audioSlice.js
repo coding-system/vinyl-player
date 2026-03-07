@@ -26,7 +26,8 @@ const TRACKS = [
       name: "Greatest Hits 1920s",
    },
    {
-      stream: "https://chmedia.streamabc.net/79-ffm-mp3-192-2470075?sABC=6902136s%231%231761743722467_66707744%23puzrqvn-enqvb-jro&metaid=1761743722374_84648641&aw_0_1st.playerid=chmedia-radio-web&amsparams=playerid:chmedia-radio-web;skey:1761743727",
+      stream:
+         "https://chmedia.streamabc.net/79-ffm-mp3-192-2470075?sABC=6902136s%231%231761743722467_66707744%23puzrqvn-enqvb-jro&metaid=1761743722374_84648641&aw_0_1st.playerid=chmedia-radio-web&amsparams=playerid:chmedia-radio-web;skey:1761743727",
       source: "https://www.flashbackfm.ch/",
       image: "",
       name: "Flashback FM",
@@ -36,14 +37,44 @@ const TRACKS = [
 // https://s1.voscast.com:10413/stream ------------https://www.swingstreetradio.org/old-time-radio/swing-street-ballroom/
 // https://uk3.internet-radio.com/proxy/1940sradio/stream-------------------https://www.1940sradio.com/
 
+const loadPersistedAudio = () => {
+   if (typeof window === "undefined") {
+      return {};
+   }
+
+   try {
+      const raw = window.localStorage.getItem("radio-audio");
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+
+      const volume = Number.isFinite(parsed.volume)
+         ? Math.max(0, Math.min(100, parsed.volume))
+         : undefined;
+      const currentTrackIndex = Number.isFinite(parsed.currentTrackIndex)
+         ? Math.max(0, Math.min(TRACKS.length - 1, parsed.currentTrackIndex))
+         : undefined;
+
+      return {
+         volume,
+         currentTrackIndex,
+      };
+   } catch (error) {
+      return {};
+   }
+};
+
+const persisted = loadPersistedAudio();
+
 const initialState = {
    powerSwitch: false,
    // driveSwitch: false,
    tonearmOnVinyl: false,
-   volume: 25,
+   volume: Number.isFinite(persisted.volume) ? persisted.volume : 25,
    twistSpinning: false,
    vinylSpinning: false,
-   currentTrackIndex: 0,
+   currentTrackIndex: Number.isFinite(persisted.currentTrackIndex)
+      ? persisted.currentTrackIndex
+      : 0,
    tracks: TRACKS,
 };
 

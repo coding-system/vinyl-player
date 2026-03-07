@@ -1,39 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleTonearmOnVinyl, startVinyl } from "../store/slices/audioSlice";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Tonearm = () => {
-   const dispatch = useDispatch();
    const tonearmOnVinyl = useSelector((state) => state.audio.tonearmOnVinyl);
-   const powerSwitch = useSelector((state) => state.audio.powerSwitch);
-   const vinylSpinning = useSelector((state) => state.audio.vinylSpinning);
-   const hasStartedRef = useRef(false);
-
-   const handleHeadClick = () => {
-      // Можно кликать только если включено питание
-      if (powerSwitch) {
-         if (!vinylSpinning && !tonearmOnVinyl) {
-            // Первый клик: запускаем диск
-            dispatch(startVinyl());
-            hasStartedRef.current = true;
-         } else {
-            // Второй клик: поднимаем тонарм (диск остановится)
-            dispatch(toggleTonearmOnVinyl());
-            hasStartedRef.current = false;
-         }
-      }
-   };
-
-   useEffect(() => {
-      // При запуске диска ждем 2000мс и опускаем тонарм
-      if (vinylSpinning && !tonearmOnVinyl && hasStartedRef.current) {
-         hasStartedRef.current = false;
-         const timer = setTimeout(() => {
-            dispatch(toggleTonearmOnVinyl());
-         }, 500);
-         return () => clearTimeout(timer);
-      }
-   }, [vinylSpinning, tonearmOnVinyl, dispatch]);
 
    return (
       <div className="tonearm">
@@ -72,7 +41,7 @@ const Tonearm = () => {
                <div class="tonearm__neck-pt2"></div>
                <div class="tonearm__neck-pt3"></div>
             </div>
-            <div class="tonearm__head" onClick={handleHeadClick}>
+            <div class="tonearm__head">
                <div class="tonearm__head-pt1"></div>
                <div class="tonearm__head-pt2"></div>
                <div class="tonearm__head-pt3">
