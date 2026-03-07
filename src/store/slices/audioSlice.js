@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const TRACKS = [
    {
-      stream: "http://stream1.early1900s.org:8080",
+      stream: "http://74.208.228.126:8020/;stream.mp3",
       source: "https://radiodismuke.com/",
       image: "",
       name: "Dismuke",

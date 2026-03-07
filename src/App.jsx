@@ -9,6 +9,7 @@ import Base from "./components/Base";
 import Tonearm from "./components/Tonearm";
 import Vinyl from "./components/Vinyl";
 import DriveSwitcher from "./components/DriveSwitcher";
+import Paper from "./components/Paper";
 
 function App() {
    return (
@@ -21,8 +22,9 @@ function App() {
          <Base />
          <Tonearm />
          <Holder />
-         <Vinyl />   
+         <Vinyl />
          <DriveSwitcher />
+         <Paper />
       </div>
    );
 }
