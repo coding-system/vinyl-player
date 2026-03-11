@@ -9,12 +9,14 @@ const Live = () => {
    const shouldPlayRef = useRef(false);
    const volumeRef = useRef(25);
    const dispatch = useDispatch();
-   const currentTrack = useSelector(
-      (state) => state.audio.tracks[state.audio.currentTrackIndex],
-   );
+   const tracks = useSelector((state) => state.audio.tracks);
    const currentTrackIndex = useSelector(
       (state) => state.audio.currentTrackIndex,
    );
+   const safeTrackIndex = tracks?.length
+      ? Math.min(Math.max(currentTrackIndex, 0), tracks.length - 1)
+      : 0;
+   const currentTrack = tracks?.[safeTrackIndex];
    const powerSwitch = useSelector((state) => state.audio.powerSwitch);
    const tonearmOnVinyl = useSelector((state) => state.audio.tonearmOnVinyl);
    const volume = useSelector((state) => state.audio.volume);
@@ -25,6 +27,9 @@ const Live = () => {
       }
 
       // Создаем аудио элемент с текущей ссылкой на стрим
+      if (!currentTrack) {
+         return;
+      }
       const nextAudio = new Audio(currentTrack.stream);
       // Проигрывание и громкость управляются в отдельном эффекте
       // https://2.mystreaming.net/uber/boomerang1920s/icecast.audio ----------------https://mytuner-radio.com/radio/greatest-hits-1920s-501210/
@@ -39,7 +44,7 @@ const Live = () => {
       return () => {
          nextAudio.pause();
       };
-   }, [currentTrackIndex, currentTrack.stream]);
+   }, [safeTrackIndex, currentTrack?.stream]);
 
    useEffect(() => {
       const handleUnlock = () => {
@@ -111,7 +116,7 @@ const Live = () => {
       }
 
       shouldPlayRef.current = shouldPlay;
-   }, [powerSwitch, tonearmOnVinyl, currentTrackIndex]);
+   }, [powerSwitch, tonearmOnVinyl, safeTrackIndex]);
 
    // Обработка колесика мыши для изменения громкости
    useEffect(() => {

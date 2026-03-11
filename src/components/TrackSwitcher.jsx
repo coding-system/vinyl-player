@@ -8,9 +8,10 @@ const TrackSwitcher = () => {
    const tracks = useSelector((state) => state.audio.tracks);
 
    const handleClick = () => {
-      const newIndex = trackIndex >= 4 ? 0 : trackIndex + 1;
+      if (!tracks || tracks.length === 0) return;
+      const newIndex = (trackIndex + 1) % tracks.length;
       dispatch(setCurrentTrack(newIndex));
-      console.log("Выбран трек:", tracks[newIndex].name);
+      console.log("Выбран трек:", tracks[newIndex]?.name || "");
    };
 
    const getTrackClass = () => {

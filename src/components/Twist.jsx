@@ -1,46 +1,35 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/main.scss";
 import { useSelector } from "react-redux";
+import { createSmoothSpinner } from "../utils/smoothSpinner";
 
 const Twist = () => {
    const twistTopRef = useRef(null);
    const twistSpinning = useSelector((state) => state.audio.twistSpinning);
    const powerSwitch = useSelector((state) => state.audio.powerSwitch);
-   const animationFrameRef = useRef(null);
-   const startTimeRef = useRef(null);
-   const initialAngleRef = useRef(0);
+   const spinnerRef = useRef(null);
 
    useEffect(() => {
-      if (twistSpinning) {
-         startTimeRef.current = performance.now();
-         const animate = (timestamp) => {
-            const elapsed = (timestamp - startTimeRef.current) / 1000; // секунды
-            const angle = (initialAngleRef.current + elapsed * 1247.4) % 360;
-            if (twistTopRef.current) {
-               twistTopRef.current.style.rotate = `${angle}deg`;
-            }
-            animationFrameRef.current = requestAnimationFrame(animate);
-         };
-         animationFrameRef.current = requestAnimationFrame(animate);
-      } else {
-         if (twistTopRef.current && animationFrameRef.current) {
-            const currentRotate = twistTopRef.current.style.rotate;
-            const match = currentRotate.match(/(\d+\.?\d*)deg/);
-            if (match) {
-               initialAngleRef.current = parseFloat(match[1]);
-            }
-         }
-         if (animationFrameRef.current) {
-            cancelAnimationFrame(animationFrameRef.current);
-            animationFrameRef.current = null;
-         }
-      }
+      if (!twistTopRef.current) return;
+      spinnerRef.current = createSmoothSpinner({
+         element: twistTopRef.current,
+         speedDegPerSec: 1247.4,
+         accelMs: 2000,
+         decelMs: 2000,
+      });
 
       return () => {
-         if (animationFrameRef.current) {
-            cancelAnimationFrame(animationFrameRef.current);
+         if (spinnerRef.current) {
+            spinnerRef.current.dispose();
+            spinnerRef.current = null;
          }
       };
+   }, []);
+
+   useEffect(() => {
+      if (spinnerRef.current) {
+         spinnerRef.current.setSpinning(twistSpinning);
+      }
    }, [twistSpinning]);
 
    return (
