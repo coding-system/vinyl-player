@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
 const Volume = () => {
+   const volume = useSelector((state) => state.audio.volume);
+   const slidRef = useRef(null);
+
+   // Обновляем позицию слайдера при изменении громкости
+   useEffect(() => {
+      if (slidRef.current) {
+         // Формула: bottom = minBottom + (volume / 100) * (maxBottom - minBottom)
+         // minBottom = -6.2%, maxBottom = 93%
+         const minBottom = -6.2;
+         const maxBottom = 93;
+         const bottom = minBottom + (volume / 100) * (maxBottom - minBottom);
+         slidRef.current.style.bottom = `${bottom}%`;
+         console.log(`Громкость: ${volume}%`);
+      }
+   }, [volume]);
+
    return (
       <div className="volume">
          <div class="volume__text">Volume</div>
          <div class="volume__pit">
             <div class="volume__pit-pt1">
-               <div class="volume__slid"></div>
+               <div class="volume__slid" ref={slidRef}></div>
             </div>
          </div>
          <div class="volume__scale">

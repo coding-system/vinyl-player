@@ -17,7 +17,7 @@
       // top: 50%;
       // left: 50%;
       // transform: translate(-50%, -50%);
-      
+
       &-pt1 {
          //ВНЕШНЯЯ
          width: 22em;
@@ -38,7 +38,8 @@
             #cfcfcf
          );
          border-radius: 50%;
-         box-shadow: inset 0.3em 0.5em 0.4em #727272,
+         box-shadow:
+            inset 0.3em 0.5em 0.4em #727272,
             inset -0.4em -0.4em 0.8em #ffffff;
       }
       &-pt2 {
@@ -61,7 +62,9 @@
          );
 
          border-radius: 50%;
-         box-shadow: 0.3em 0.3em 0.1em #525252, 0.5em 0.5em 1em #868686,
+         box-shadow:
+            0.3em 0.3em 0.1em #525252,
+            0.5em 0.5em 1em #868686,
             -0.2em -0.2em 0.5em #ffffff;
       }
       &-pt3 {
@@ -94,13 +97,26 @@
       position: relative;
       top: 50%;
       left: 50%;
-      transition: 0.5s ease;
+      transition: 2s ease;
       display: flex;
       justify-content: center;
       align-items: self-start;
       flex-direction: column;
       &-playing {
-         transform: rotate(22deg);
+         $angle: 22;
+         $angle-delta: 0.05;
+         // @keyframes tonearm-playing {
+         //    0% {
+         //       // transform: rotate(21.95deg);
+         //       transform: rotate(calc($angle - $angle-delta) deg);
+         //    }
+         //    100% {
+         //       transform: rotate(calc($angle + $angle-delta) deg);
+         //    }
+         // }
+         // animation: tonearm-playing 0.3s linear alternate infinite;
+         transform: rotate(19deg);
+         transition: 2s ease;
       }
    }
    &__balance {
@@ -506,7 +522,7 @@
          #cfcfcf,
          #c2c2c2
       );
-      height: calc(56em + #{$balance-height}em);
+      height: calc(52em + #{$balance-height}em);
       width: #{$neck-width}em;
       display: flex;
       justify-content: center;
@@ -514,7 +530,7 @@
       top: #{-$balance-tail}em;
    }
    &__head {
-      cursor: pointer;
+      // cursor: pointer;
       transform: translateX(-50%);
       position: relative;
       top: #{-$balance-tail}em;
@@ -530,7 +546,7 @@
       // background-color: #e0de6b;
       // width: 3em;
       // height: 8em;
-      transition: 0.5s ease;
+      // transition: 0.5s ease;
       // &-playing {
       //    // transform: translate(0.22em, 0) rotate(0deg);
       // }
@@ -630,19 +646,21 @@
          height: 7em;
          background-color: #9c989e;
          background: linear-gradient(
-            30deg,
-            #2b2b2b,
-            #292929,
-            #2c2c2c,
-            #363636,
-            #3f3f3f,
-            #464646,
-            #585858
+            90deg,
+            #1d1d1d,
+            #313131,
+            #4b4b4b,
+            #707070,
+            #9c9c9c,
+            #707070,
+            #4b4b4b,
+            #313131,
+            #0f0f0f
          );
          border-top-right-radius: 0.5em;
          border-top-left-radius: 0.5em;
-         box-shadow: inset -0.2em 0.2em 0.2em #0000003f,
-            inset 0.2em 0.2em 0.2em #ffffff3f;
+
+         overflow: hidden;
       }
       &-stick {
          position: absolute;
@@ -693,7 +711,8 @@
          height: 2.8em;
          background: linear-gradient(90deg, #303030, #3f3f3f, #616161);
          border-radius: 1em;
-         box-shadow: inset 0.2em 0.2em 0.2em #3a3a3a,
+         box-shadow:
+            inset 0.2em 0.2em 0.2em #3a3a3a,
             inset 0.4em 0.4em 0.2em #181818;
 
          &:nth-child(2) .tonearm__head-pin::before {

@@ -1,0 +1,17 @@
+@media (width <= 700px) {
+   html {
+      font-size: 12px;
+   }
+}
+
+@media (width <= 900px) {
+   html {
+      font-size: 5px;
+   }
+}
+
+@media (2560px <= width) {
+   html {
+      font-size: 12px;
+   }
+}

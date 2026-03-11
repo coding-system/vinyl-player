@@ -1,38 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/main.scss";
+import { useSelector } from "react-redux";
+import { createSmoothSpinner } from "../utils/smoothSpinner";
 
 const Vinyl = () => {
+   const vinylBoxRef = useRef(null);
+   const vinylSpinning = useSelector((state) => state.audio.vinylSpinning);
+   const spinnerRef = useRef(null);
+
+   useEffect(() => {
+      if (!vinylBoxRef.current) return;
+      spinnerRef.current = createSmoothSpinner({
+         element: vinylBoxRef.current,
+         speedDegPerSec: 198,
+         accelMs: 2000,
+         decelMs: 2000,
+      });
+
+      return () => {
+         if (spinnerRef.current) {
+            spinnerRef.current.dispose();
+            spinnerRef.current = null;
+         }
+      };
+   }, []);
+
+   useEffect(() => {
+      if (spinnerRef.current) {
+         spinnerRef.current.setSpinning(vinylSpinning);
+      }
+   }, [vinylSpinning]);
+
    return (
-      <div class="vinyl">
-         <div class="vinyl__box">
-            <div class="vinyl__body">
-               <div class="vinyl__center">
-                  <div class="vinyl__out"></div>
-                  <div class="vinyl__in">
-                     <span class="vinyl__in-text-time"></span>
-                     <svg viewBox="0 0 200 200" class="vinyl__text-circle">
-                        <defs>
-                           <path
-                              id="circlePath"
-                              d="M 100,100
-                         m -80,0
-                         a 80,80 0 1,1 160,0
-                         a 80,80 0 1,1 -160,0"
-                           />
-                        </defs>
-                        <text class="vinyl__circle-text">
-                           <textPath
-                              xlink:href="#circlePath"
-                              startOffset="0%"
-                              textLength="490"
-                              lengthAdjust="spacing"
-                           >
-                              VINTAGE RETRO RADIO FOR RELAXING SLEEPING STUDYING
-                           </textPath>
-                        </text>
-                     </svg>
+      <div className="vinyl">
+         <div className="vinyl__box" ref={vinylBoxRef}>
+            <div className="vinyl__body">
+               <div className="vinyl__center">
+                  <div className="vinyl__out">
+                     <div className="vinyl__label">
+                        <div className="vinyl__label-box">
+                           <div className="vinyl__label-title">RETRO RADIO</div>
+                        </div>
+                     </div>
                   </div>
-                  <div class="vinyl__dot"></div>
+                  <div className="vinyl__in"></div>
+                  <div className="vinyl__dot"></div>
                </div>
             </div>
          </div>
