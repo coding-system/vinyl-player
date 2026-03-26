@@ -1,16 +1,54 @@
-# React + Vite
+# Retro Radio Broadcast
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-проигрыватель винила с реалистичной визуальной вертушкой. Включай в браузере и слушай ретро радиостанции.
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Реалистичная визуализация проигрывателя: вращение пластинки, движение тонарма, детали корпуса.
+- Переключение между выбранными радиостанциями.
+- Плавный разгон и торможение диска и привода.
 
-## React Compiler
+## Стек
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- Redux Toolkit
+- SCSS
 
-## Expanding the ESLint configuration
+## Быстрый старт
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Установить зависимости:
+
+```bash
+npm install
+```
+
+Запустить dev-сервер:
+
+```bash
+npm run dev
+```
+
+Сборка для продакшна:
+
+```bash
+npm run build
+```
+
+Просмотр production-сборки:
+
+```bash
+npm run preview
+```
+
+## Скрипты
+
+- `npm run dev` - Запуск dev-сервера
+- `npm run build` - Сборка для продакшна
+- `npm run start` - Запуск dev-сервера и открытие браузера
+
+## Источники треков
+
+- Dismuke - https://radiodismuke.com/
+- 1940s Radio - https://www.1940sradio.com/
+- Swing Street - https://www.swingstreetradio.org/
+- Greatest Hits 1920s - https://mytuner-radio.com/radio/greatest-hits-1920s-501210/

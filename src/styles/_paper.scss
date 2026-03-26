@@ -105,7 +105,6 @@ $text-color: #413f3a;
       &:hover {
          & .paper__num,
          & .paper__name {
-            transition: 0.2s ease;
             color: #c59212;
          }
          &::before {
@@ -119,12 +118,14 @@ $text-color: #413f3a;
       font-weight: 600;
       color: currentColor;
       font-size: 2.2em;
+      transition: color 0.2s ease;
    }
    &__name {
       font-family: "Allura", serif;
       font-weight: 600;
       color: currentColor;
       font-size: 2.6em;
+      transition: color 0.2s ease;
    }
    &__link {
       text-decoration: none;

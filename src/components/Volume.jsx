@@ -20,30 +20,30 @@ const Volume = () => {
 
    return (
       <div className="volume">
-         <div class="volume__text">Volume</div>
-         <div class="volume__pit">
-            <div class="volume__pit-pt1">
-               <div class="volume__slid" ref={slidRef}></div>
+         <div className="volume__text">Volume</div>
+         <div className="volume__pit">
+            <div className="volume__pit-pt1">
+               <div className="volume__slid" ref={slidRef}></div>
             </div>
          </div>
-         <div class="volume__scale">
-            <div class="volume__dash-full"></div>
-            <div class="volume__dash-long">
-               <span class="volume__dash-text volume__dash-text-100">100</span>
+         <div className="volume__scale">
+            <div className="volume__dash-full"></div>
+            <div className="volume__dash-long">
+               <span className="volume__dash-text volume__dash-text-100">100</span>
             </div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-long">
-               <span class="volume__dash-text volume__dash-text-50">50</span>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-long">
+               <span className="volume__dash-text volume__dash-text-50">50</span>
             </div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-short"></div>
-            <div class="volume__dash-long">
-               <span class="volume__dash-text volume__dash-text-0">0</span>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-short"></div>
+            <div className="volume__dash-long">
+               <span className="volume__dash-text volume__dash-text-0">0</span>
             </div>
          </div>
       </div>
