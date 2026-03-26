@@ -38,9 +38,9 @@ const Vinyl = () => {
                <div className="vinyl__center">
                   <div className="vinyl__out">
                      <div className="vinyl__label">
-                        <div className="vinyl__label-box">
+                        {/* <div className="vinyl__label-box">
                            <div className="vinyl__label-title">RETRO RADIO</div>
-                        </div>
+                        </div> */}
                      </div>
                   </div>
                   <div className="vinyl__in"></div>

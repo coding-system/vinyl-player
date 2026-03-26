@@ -38,13 +38,13 @@ const DriveSwitcher = () => {
                   powerSwitch ? "drive-switcher__label-text-playing" : ""
                }`}
             >
-               <i class="bi bi-power"></i>
+               <i className="bi bi-power"></i>
             </span>
             {/* <span className="drive-switcher__label-text">
                /
             </span>
             <span className="drive-switcher__label-text drive-switcher__label-text--special">
-               <i class="bi bi-circle"></i>
+               <i className="bi bi-circle"></i>
             </span> */}
          </div>
          <div
