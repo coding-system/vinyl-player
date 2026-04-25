@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const TRACKS = [
    {
-      stream: "https://1.restream.one/56_1",
+      // stream: "https://1.restream.one/56_1",
+      stream: "https://stream03.pcradio.ru/dismuke_radio-med",
       source: "https://radiodismuke.com/",
       image: "",
       name: "Dismuke",

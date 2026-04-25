@@ -14,7 +14,6 @@ const Volume = () => {
          const maxBottom = 93;
          const bottom = minBottom + (volume / 100) * (maxBottom - minBottom);
          slidRef.current.style.bottom = `${bottom}%`;
-         console.log(`Громкость: ${volume}%`);
       }
    }, [volume]);
 
@@ -29,14 +28,18 @@ const Volume = () => {
          <div className="volume__scale">
             <div className="volume__dash-full"></div>
             <div className="volume__dash-long">
-               <span className="volume__dash-text volume__dash-text-100">100</span>
+               <span className="volume__dash-text volume__dash-text-100">
+                  100
+               </span>
             </div>
             <div className="volume__dash-short"></div>
             <div className="volume__dash-short"></div>
             <div className="volume__dash-short"></div>
             <div className="volume__dash-short"></div>
             <div className="volume__dash-long">
-               <span className="volume__dash-text volume__dash-text-50">50</span>
+               <span className="volume__dash-text volume__dash-text-50">
+                  50
+               </span>
             </div>
             <div className="volume__dash-short"></div>
             <div className="volume__dash-short"></div>
